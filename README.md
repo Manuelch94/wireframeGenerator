@@ -1,2 +1,6 @@
-# wireframeGenerator
-Splunk Dashboard Studio helper
+# Splunk DashboardStudio WireframeGenerator
+
+Splunk Dashboard Studio helper using chatgpt. 
+
+
+
