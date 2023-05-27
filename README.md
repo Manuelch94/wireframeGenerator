@@ -4,8 +4,18 @@ Splunk Dashboard Studio helper using chatgpt. There is the ocasional time where 
 
 
 
+Requirements. 
+
+1. Get your API key [openai](https://platform.openai.com/docs/api-reference)
+
+2. Check the Splunk Dashboard Studio Documentation for the JSON schema [here](https://docs.splunk.com/Documentation/SplunkCloud/9.0.2303/DashStudio/dashDef).
 
 
 
+How to setup
+
+
+
+Examples: 
 
 
