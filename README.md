@@ -2,7 +2,7 @@
 
 Splunk Dashboard Studio helper using chatgpt. There is the ocasional time where is necesary to quickly generate a dashboard wireframe to be filled with the required information and format. By "feeding" chatgpt a basic JSON schema it will be able to generate on top of that as per users request. 
 
-
+&nbsp;
 ## Requirements. 
 
 1. Get your API key [openai](https://platform.openai.com/docs/api-reference)
@@ -21,6 +21,7 @@ Splunk Dashboard Studio helper using chatgpt. There is the ocasional time where 
 | os | 
 
 Openai python library: https://github.com/openai/openai-python
+
 
 ## How to setup? 
 
@@ -41,10 +42,101 @@ To make this change persistent, add the command to your shell's config either `~
 ### 2. Run the `dashai_setup.sh`
 
 ``` bash 
-./dashai_setup.sh
+source dashai_setup.sh
+```
+
+&nbsp;
+## Examples: 
+
+For further details visit: https://youtu.be/XyEnesetDF8
+
+1. Run the script as follows
+
+```bash
+python dashai.py "<your promt here>"
+
+```
+
+It will generate the output directly in the terminal
+
+
+2. Build a Line Chart
+
+```bash
+python dashai.py "build a line chart"
+```
+
+![example1](example1.png)
+
+Output example:
+
+``` json
+{
+    "layout": {
+        "type": "absolute",
+        "options": {
+            "display": "auto-scale",
+            "height": 2000,
+            "width": 2000
+        },
+        "structure": [
+            {
+                "item": "viz_LYCo0hNI",
+                "type": "block",
+                "position": {
+                    "x": 20,
+                    "y": 20,
+                    "w": 300,
+                    "h": 300
+                }
+            }
+        ],
+        "globalInputs": [
+            "input_global_trp"
+        ]
+    },
+    "visualizations": {
+        "viz_LYCo0hNI": {
+            "type": "splunk.line",
+            "title": "line chart"
+        }
+    },
+    "dataSources": {},
+    "defaults": {
+        "dataSources": {
+            "ds.search": {
+                "options": {
+                    "queryParameters": {
+                        "latest": "$global_time.latest$",
+                        "earliest": "$global_time.earliest$"
+                    }
+                }
+            }
+        }
+    },
+    "inputs": {
+        "input_global_trp": {
+            "type": "input.timerange",
+            "options": {
+                "token": "global_time",
+                "defaultValue": "-24h@h,now"
+            },
+            "title": "Global Time Range"
+        }
+    },
+    "description": "",
+    "title": "mydashboard"
+    }
+
 ```
 
 
-## Examples: 
+3. It is recommended to send the output of the command to a txt. 
+
+```bash
+python dashai.py "build a line chart" > exampledashboard.txt
+
+```
+
 
 
